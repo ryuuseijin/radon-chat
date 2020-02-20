@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/radon.umd.js",
-  "module": "dist/radon.es5.js",
-  "typings": "dist/types/radon.d.ts",
+  "main": "build/radon.umd.js",
+  "module": "build/radon.es5.js",
+  "typings": "build/types/radon.d.ts",
   "files": [
-    "dist"
+    "build"
   ],
   "author": "ryuuseijin <ryuuseijin.gh@fastmail.com>",
   "repository": {
@@ -20,9 +20,9 @@
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
-    "start": "rollup -c rollup.config.ts -w",
+    "prebuild": "rimraf build",
+    "build": "tsc --module commonjs && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "start": "node build/radon.js",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
@@ -105,12 +105,6 @@
     "prompt": "^1.0.0",
     "replace-in-file": "^3.4.2",
     "rimraf": "^2.6.2",
-    "rollup": "^0.67.0",
-    "rollup-plugin-commonjs": "^9.1.8",
-    "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.18.0",
     "semantic-release": "^15.9.16",
     "shelljs": "^0.8.3",
     "travis-deploy-once": "^5.0.9",
